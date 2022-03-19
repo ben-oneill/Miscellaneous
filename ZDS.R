@@ -1,6 +1,6 @@
 #' Zero-Defect Sampling (ZDS) analysis for defective items in a finite population
 #'
-#' \code{ZDS} returns zero-defect sampling analysis for defective items in a finite population.
+#' \code{ZDS.analysis} returns zero-defect sampling analysis for defective items in a finite population.
 #'
 #' This function implements Bayesian analysis of a Zero-Defect Sampling (ZDS) scheme for defective
 #' items in a finite population.  The analysis assumes that the sample is obtained by simple random
@@ -16,7 +16,7 @@
 #' to use a geometric prior with the specified rate or they can input a custom prior as the \code{prior} input.
 #' In the latter case the prior should be a vector of probabilities/log-probabilities with length \code{N+1}.
 #'
-#' @usage \code{ZDS(N, prob = 1, prior = NULL, prior.rate = 0, prior.warning = TRUE)}
+#' @usage \code{ZDS.analysis(N, prob = 1, prior = NULL, prior.rate = 0, log.prior = FALSE, prior.warning = TRUE)}
 #' @param N The population size
 #' @param prob The probability of detecting a defect in a sampled item (if it is defective)
 #' @param prior An optional vector of prior probabilities for the number of defective items in the population
@@ -25,7 +25,7 @@
 #' @param prior.warning Logical; if \code{TRUE} the function will warn you if your prior does not sum to one
 #' @return A list of class \code{defect} containing prior and posterior information
 
-ZDS <- function(N, prob = 1, prior = NULL, prior.rate = 0, log.prior = FALSE, prior.warning = TRUE) {
+ZDS.analysis <- function(N, prob = 1, prior = NULL, prior.rate = 0, log.prior = FALSE, prior.warning = TRUE) {
 
   #Check input N
   if (!is.numeric(N))               stop('Error: Population size N should be numeric')
